@@ -1,178 +1,109 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 15,
-   "metadata": {
-    "collapsed": false,
-    "deletable": true,
-    "editable": true,
-    "scrolled": false
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "INFO:tensorflow:Error reported to Coordinator: <class 'tensorflow.python.framework.errors_impl.InvalidArgumentError'>, Unquoted fields cannot have quotes/CRLFs inside\n",
-      "\t [[Node: DecodeCSV = DecodeCSV[OUT_TYPE=[DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT, DT_FLOAT], field_delim=\",\", use_quote_delim=true, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](ReaderReadV2:1, DecodeCSV/record_defaults_0, DecodeCSV/record_defaults_1, DecodeCSV/record_defaults_2, DecodeCSV/record_defaults_3, DecodeCSV/record_defaults_4, DecodeCSV/record_defaults_5, DecodeCSV/record_defaults_6, DecodeCSV/record_defaults_7, DecodeCSV/record_defaults_8)]]\n"
-     ]
-    },
-    {
-     "ename": "OutOfRangeError",
-     "evalue": "FIFOQueue '_143_batch_9/fifo_queue' is closed and has insufficient elements (requested 20, current size 0)\n\t [[Node: batch_9 = QueueDequeueManyV2[component_types=[DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](batch_9/fifo_queue, batch_9/n)]]\n\nCaused by op 'batch_9', defined at:\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\__main__.py\", line 3, in <module>\n    app.launch_new_instance()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\traitlets\\config\\application.py\", line 658, in launch_instance\n    app.start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelapp.py\", line 474, in start\n    ioloop.IOLoop.instance().start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\ioloop.py\", line 177, in start\n    super(ZMQIOLoop, self).start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\ioloop.py\", line 887, in start\n    handler_func(fd_obj, events)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\stack_context.py\", line 275, in null_wrapper\n    return fn(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 440, in _handle_events\n    self._handle_recv()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 472, in _handle_recv\n    self._run_callback(callback, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 414, in _run_callback\n    callback(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\stack_context.py\", line 275, in null_wrapper\n    return fn(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 276, in dispatcher\n    return self.dispatch_shell(stream, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 228, in dispatch_shell\n    handler(stream, idents, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 390, in execute_request\n    user_expressions, allow_stdin)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\ipkernel.py\", line 196, in do_execute\n    res = shell.run_cell(code, store_history=store_history, silent=silent)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\zmqshell.py\", line 501, in run_cell\n    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2717, in run_cell\n    interactivity=interactivity, compiler=compiler, result=result)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2821, in run_ast_nodes\n    if self.run_code(code, result):\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2881, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-15-a710ba72862f>\", line 44, in <module>\n    train_x_batch, train_y_batch =     tf.train.batch([train_data[0:-1], train_data[-1]], batch_size=20)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\training\\input.py\", line 922, in batch\n    name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\training\\input.py\", line 716, in _batch\n    dequeued = queue.dequeue_many(batch_size, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\ops\\data_flow_ops.py\", line 457, in dequeue_many\n    self._queue_ref, n=n, component_types=self._dtypes, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\ops\\gen_data_flow_ops.py\", line 1342, in _queue_dequeue_many_v2\n    timeout_ms=timeout_ms, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\op_def_library.py\", line 767, in apply_op\n    op_def=op_def)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\ops.py\", line 2630, in create_op\n    original_op=self._default_original_op, op_def=op_def)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\ops.py\", line 1204, in __init__\n    self._traceback = self._graph._extract_stack()  # pylint: disable=protected-access\n\nOutOfRangeError (see above for traceback): FIFOQueue '_143_batch_9/fifo_queue' is closed and has insufficient elements (requested 20, current size 0)\n\t [[Node: batch_9 = QueueDequeueManyV2[component_types=[DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](batch_9/fifo_queue, batch_9/n)]]\n",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[1;31mOutOfRangeError\u001b[0m                           Traceback (most recent call last)",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36m_do_call\u001b[1;34m(self, fn, *args)\u001b[0m\n\u001b[0;32m   1326\u001b[0m     \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1327\u001b[1;33m       \u001b[1;32mreturn\u001b[0m \u001b[0mfn\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m*\u001b[0m\u001b[0margs\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1328\u001b[0m     \u001b[1;32mexcept\u001b[0m \u001b[0merrors\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mOpError\u001b[0m \u001b[1;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36m_run_fn\u001b[1;34m(session, feed_dict, fetch_list, target_list, options, run_metadata)\u001b[0m\n\u001b[0;32m   1305\u001b[0m                                    \u001b[0mfeed_dict\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfetch_list\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mtarget_list\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1306\u001b[1;33m                                    status, run_metadata)\n\u001b[0m\u001b[0;32m   1307\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\contextlib.py\u001b[0m in \u001b[0;36m__exit__\u001b[1;34m(self, type, value, traceback)\u001b[0m\n\u001b[0;32m     87\u001b[0m             \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 88\u001b[1;33m                 \u001b[0mnext\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgen\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m     89\u001b[0m             \u001b[1;32mexcept\u001b[0m \u001b[0mStopIteration\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\errors_impl.py\u001b[0m in \u001b[0;36mraise_exception_on_not_ok_status\u001b[1;34m()\u001b[0m\n\u001b[0;32m    465\u001b[0m           \u001b[0mcompat\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mas_text\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mpywrap_tensorflow\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mTF_Message\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mstatus\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 466\u001b[1;33m           pywrap_tensorflow.TF_GetCode(status))\n\u001b[0m\u001b[0;32m    467\u001b[0m   \u001b[1;32mfinally\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;31mOutOfRangeError\u001b[0m: FIFOQueue '_143_batch_9/fifo_queue' is closed and has insufficient elements (requested 20, current size 0)\n\t [[Node: batch_9 = QueueDequeueManyV2[component_types=[DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](batch_9/fifo_queue, batch_9/n)]]",
-      "\nDuring handling of the above exception, another exception occurred:\n",
-      "\u001b[1;31mOutOfRangeError\u001b[0m                           Traceback (most recent call last)",
-      "\u001b[1;32m<ipython-input-15-a710ba72862f>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m     80\u001b[0m \u001b[1;31m#training process\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     81\u001b[0m \u001b[1;32mfor\u001b[0m \u001b[0mstep\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m1501\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 82\u001b[1;33m     \u001b[0mx_batch\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0my_batch\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0msess\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mrun\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mtrain_x_batch\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mtrain_y_batch\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m     83\u001b[0m     cost_val, hypothesis_val, _ = sess.run(\n\u001b[0;32m     84\u001b[0m         [cost, hypothesis, train], feed_dict={X: x_batch, Y: y_batch})\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36mrun\u001b[1;34m(self, fetches, feed_dict, options, run_metadata)\u001b[0m\n\u001b[0;32m    893\u001b[0m     \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    894\u001b[0m       result = self._run(None, fetches, feed_dict, options_ptr,\n\u001b[1;32m--> 895\u001b[1;33m                          run_metadata_ptr)\n\u001b[0m\u001b[0;32m    896\u001b[0m       \u001b[1;32mif\u001b[0m \u001b[0mrun_metadata\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    897\u001b[0m         \u001b[0mproto_data\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mtf_session\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mTF_GetBuffer\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mrun_metadata_ptr\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36m_run\u001b[1;34m(self, handle, fetches, feed_dict, options, run_metadata)\u001b[0m\n\u001b[0;32m   1122\u001b[0m     \u001b[1;32mif\u001b[0m \u001b[0mfinal_fetches\u001b[0m \u001b[1;32mor\u001b[0m \u001b[0mfinal_targets\u001b[0m \u001b[1;32mor\u001b[0m \u001b[1;33m(\u001b[0m\u001b[0mhandle\u001b[0m \u001b[1;32mand\u001b[0m \u001b[0mfeed_dict_tensor\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1123\u001b[0m       results = self._do_run(handle, final_targets, final_fetches,\n\u001b[1;32m-> 1124\u001b[1;33m                              feed_dict_tensor, options, run_metadata)\n\u001b[0m\u001b[0;32m   1125\u001b[0m     \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1126\u001b[0m       \u001b[0mresults\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;33m[\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36m_do_run\u001b[1;34m(self, handle, target_list, fetch_list, feed_dict, options, run_metadata)\u001b[0m\n\u001b[0;32m   1319\u001b[0m     \u001b[1;32mif\u001b[0m \u001b[0mhandle\u001b[0m \u001b[1;32mis\u001b[0m \u001b[1;32mNone\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1320\u001b[0m       return self._do_call(_run_fn, self._session, feeds, fetches, targets,\n\u001b[1;32m-> 1321\u001b[1;33m                            options, run_metadata)\n\u001b[0m\u001b[0;32m   1322\u001b[0m     \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1323\u001b[0m       \u001b[1;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_do_call\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0m_prun_fn\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_session\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mhandle\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfeeds\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfetches\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;32mc:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\client\\session.py\u001b[0m in \u001b[0;36m_do_call\u001b[1;34m(self, fn, *args)\u001b[0m\n\u001b[0;32m   1338\u001b[0m         \u001b[1;32mexcept\u001b[0m \u001b[0mKeyError\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1339\u001b[0m           \u001b[1;32mpass\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1340\u001b[1;33m       \u001b[1;32mraise\u001b[0m \u001b[0mtype\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0me\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnode_def\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mop\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mmessage\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1341\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1342\u001b[0m   \u001b[1;32mdef\u001b[0m \u001b[0m_extend_graph\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
-      "\u001b[1;31mOutOfRangeError\u001b[0m: FIFOQueue '_143_batch_9/fifo_queue' is closed and has insufficient elements (requested 20, current size 0)\n\t [[Node: batch_9 = QueueDequeueManyV2[component_types=[DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](batch_9/fifo_queue, batch_9/n)]]\n\nCaused by op 'batch_9', defined at:\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\__main__.py\", line 3, in <module>\n    app.launch_new_instance()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\traitlets\\config\\application.py\", line 658, in launch_instance\n    app.start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelapp.py\", line 474, in start\n    ioloop.IOLoop.instance().start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\ioloop.py\", line 177, in start\n    super(ZMQIOLoop, self).start()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\ioloop.py\", line 887, in start\n    handler_func(fd_obj, events)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\stack_context.py\", line 275, in null_wrapper\n    return fn(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 440, in _handle_events\n    self._handle_recv()\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 472, in _handle_recv\n    self._run_callback(callback, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\zmq\\eventloop\\zmqstream.py\", line 414, in _run_callback\n    callback(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tornado\\stack_context.py\", line 275, in null_wrapper\n    return fn(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 276, in dispatcher\n    return self.dispatch_shell(stream, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 228, in dispatch_shell\n    handler(stream, idents, msg)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\kernelbase.py\", line 390, in execute_request\n    user_expressions, allow_stdin)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\ipkernel.py\", line 196, in do_execute\n    res = shell.run_cell(code, store_history=store_history, silent=silent)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\ipykernel\\zmqshell.py\", line 501, in run_cell\n    return super(ZMQInteractiveShell, self).run_cell(*args, **kwargs)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2717, in run_cell\n    interactivity=interactivity, compiler=compiler, result=result)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2821, in run_ast_nodes\n    if self.run_code(code, result):\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\core\\interactiveshell.py\", line 2881, in run_code\n    exec(code_obj, self.user_global_ns, self.user_ns)\n  File \"<ipython-input-15-a710ba72862f>\", line 44, in <module>\n    train_x_batch, train_y_batch =     tf.train.batch([train_data[0:-1], train_data[-1]], batch_size=20)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\training\\input.py\", line 922, in batch\n    name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\training\\input.py\", line 716, in _batch\n    dequeued = queue.dequeue_many(batch_size, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\ops\\data_flow_ops.py\", line 457, in dequeue_many\n    self._queue_ref, n=n, component_types=self._dtypes, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\ops\\gen_data_flow_ops.py\", line 1342, in _queue_dequeue_many_v2\n    timeout_ms=timeout_ms, name=name)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\op_def_library.py\", line 767, in apply_op\n    op_def=op_def)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\ops.py\", line 2630, in create_op\n    original_op=self._default_original_op, op_def=op_def)\n  File \"c:\\users\\haha\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\tensorflow\\python\\framework\\ops.py\", line 1204, in __init__\n    self._traceback = self._graph._extract_stack()  # pylint: disable=protected-access\n\nOutOfRangeError (see above for traceback): FIFOQueue '_143_batch_9/fifo_queue' is closed and has insufficient elements (requested 20, current size 0)\n\t [[Node: batch_9 = QueueDequeueManyV2[component_types=[DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device=\"/job:localhost/replica:0/task:0/cpu:0\"](batch_9/fifo_queue, batch_9/n)]]\n"
-     ]
-    }
-   ],
-   "source": [
-    "import tensorflow as tf\n",
-    "import csv\n",
-    "\n",
-    "#Transform the value of attribute famhist \n",
-    "with open('raw_train_data.csv') as raw_file, open('train_data.csv','w') as new_file:\n",
-    "    reader = csv.reader(raw_file, delimiter=',')\n",
-    "    writer = csv.writer(new_file, delimiter=',')\n",
-    "    for row in reader:\n",
-    "        record = row\n",
-    "        \n",
-    "        if(row[4] == 'Present'):\n",
-    "            record[4] = 1\n",
-    "        else:\n",
-    "            record[4] = 0\n",
-    "        \n",
-    "        writer.writerow(record)\n",
-    "\n",
-    "with open('raw_test_data.csv') as raw_file, open('test_data.csv','w') as new_file:\n",
-    "    reader = csv.reader(raw_file, delimiter=',')\n",
-    "    writer = csv.writer(new_file, delimiter=',')\n",
-    "    for row in reader:\n",
-    "        record = row\n",
-    "        \n",
-    "        if(row[4] == 'Present'):\n",
-    "            record[4] = 1\n",
-    "        else:\n",
-    "            record[4] = 0\n",
-    "        \n",
-    "        writer.writerow(record)\n",
-    "\n",
-    "#Read and decode data from csv file\n",
-    "train_filename_queue = tf.train.string_input_producer(\n",
-    "    ['train_data.csv'], shuffle=False, name='train_file_queue')\n",
-    "\n",
-    "test_filename_queue = tf.train.string_input_producer(\n",
-    "    ['test_data.csv'], shuffle=False, name='test_file_queue')\n",
-    "reader = tf.TextLineReader()\n",
-    "\n",
-    "key, value = reader.read(train_filename_queue)\n",
-    "\n",
-    "record_defaults = [[0.0], [0.0], [0.0],[0.0],[0.0],\n",
-    "                   [0.0],[0.0],[0.0],[0.0],[0.0]]\n",
-    "\n",
-    "train_data = tf.decode_csv(value, record_defaults=record_defaults)\n",
-    "\n",
-    "key, value = reader.read(test_filename_queue)\n",
-    "\n",
-    "test_data = tf.decode_csv(value, record_defaults=record_defaults)\n",
-    "\n",
-    "train_x_batch, train_y_batch = \\\n",
-    "    tf.train.batch([train_data[0:-1], train_data[-1]], batch_size=20)\n",
-    "\n",
-    "test_features = test_data[0:-1]\n",
-    "test_labels = test_data[-1]\n",
-    "\n",
-    "#placeholders for tensors\n",
-    "X = tf.placeholder(tf.float32, shape=[None, 9])\n",
-    "\n",
-    "Y = tf.placeholder(tf.float32, shape=[None, 1])\n",
-    "\n",
-    "\n",
-    "#Training variables\n",
-    "W = tf.Variable(tf.random_normal([9, 1]))\n",
-    "\n",
-    "b = tf.Variable(tf.random_normal([1]))\n",
-    "\n",
-    "\n",
-    "#define hypothesis and cost functions\n",
-    "logit = tf.matmul(X, W) + b\n",
-    "\n",
-    "hypothesis = tf.sigmoid(logit)\n",
-    "\n",
-    "cost = - tf.reduce_mean((Y * tf.log(hypothesis) + (1-Y) * tf.log(1 - hypothesis)))\n",
-    "\n",
-    "\n",
-    "#perform optimization\n",
-    "tf.train.AdamOptimizer(learning_rate=0.01).minimize(cost)\n",
-    "\n",
-    "\n",
-    "sess = tf.Session()\n",
-    "\n",
-    "sess.run(tf.global_variables_initializer())\n",
-    "\n",
-    "\n",
-    "#populate the file queue\n",
-    "coord = tf.train.Coordinator()\n",
-    "threads = tf.train.start_queue_runners(sess=sess, coord=coord)\n",
-    "\n",
-    "#training process\n",
-    "for step in range(1501):\n",
-    "    x_batch, y_batch = sess.run([train_x_batch, train_y_batch])\n",
-    "    cost_val, hypothesis_val, _ = sess.run(\n",
-    "        [cost, hypothesis, train], feed_dict={X: x_batch, Y: y_batch})\n",
-    "    print(\"at Step: {}, cost: {}\".formate(step, cost))\n",
-    "\n",
-    "    \n",
-    "#testing process\n",
-    "features = tf.placeholder(tf.float32, shape=[None, 9])\n",
-    "labels = tf.placeholder(tf.float32, shape=[None, 1])\n",
-    "for step in range(67):\n",
-    "    feature, label = sess.run([test_features, test_labels])\n",
-    "    features = sess.run(tf.concat(features, feature))\n",
-    "    labels = sess.run(tf.concat(labels, label))\n",
-    "    \n",
-    "cost = sess.run(cost, feed_dict={X:feature, Y: label})\n",
-    "\n",
-    "\n",
-    "coord.request_stop()\n",
-    "coord.join(threads)"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.6.2"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 2
-}
+import tensorflow as tf
+import csv
+
+#Transform the value of attribute famhist 
+with open('raw_train_data.csv') as raw_file, open('train_data.csv','w') as new_file:
+    reader = csv.reader(raw_file, delimiter=',')
+    writer = csv.writer(new_file, delimiter=',')
+    for row in reader:
+        record = row
+        
+        if(row[4] == 'Present'):
+            record[4] = 1
+        else:
+            record[4] = 0
+        
+        writer.writerow(record)
+
+with open('raw_test_data.csv') as raw_file, open('test_data.csv','w') as new_file:
+    reader = csv.reader(raw_file, delimiter=',')
+    writer = csv.writer(new_file, delimiter=',')
+    for row in reader:
+        record = row
+        
+        if(row[4] == 'Present'):
+            record[4] = 1
+        else:
+            record[4] = 0
+        
+        writer.writerow(record)
+
+#Read and decode data from csv file
+train_filename_queue = tf.train.string_input_producer(
+    ['train_data.csv'], shuffle=False, name='train_file_queue')
+
+test_filename_queue = tf.train.string_input_producer(
+    ['test_data.csv'], shuffle=False, name='test_file_queue')
+reader = tf.TextLineReader()
+
+key, value = reader.read(train_filename_queue)
+
+record_defaults = [[0.0], [0.0], [0.0],[0.0],[0.0],
+                   [0.0],[0.0],[0.0],[0.0],[0.0]]
+
+train_data = tf.decode_csv(value, record_defaults=record_defaults)
+
+key, value = reader.read(test_filename_queue)
+
+test_data = tf.decode_csv(value, record_defaults=record_defaults)
+
+train_x_batch, train_y_batch = \
+    tf.train.batch([train_data[0:-1], train_data[-1]], batch_size=20)
+
+test_features = test_data[0:-1]
+test_labels = test_data[-1]
+
+#placeholders for tensors
+X = tf.placeholder(tf.float32, shape=[None, 9])
+
+Y = tf.placeholder(tf.float32, shape=[None, 1])
+
+
+#Training variables
+W = tf.Variable(tf.random_normal([9, 1]))
+
+b = tf.Variable(tf.random_normal([1]))
+
+
+#define hypothesis and cost functions
+logit = tf.matmul(X, W) + b
+
+hypothesis = tf.sigmoid(logit)
+
+cost = - tf.reduce_mean((Y * tf.log(hypothesis) + (1-Y) * tf.log(1 - hypothesis)))
+
+
+#perform optimization
+tf.train.AdamOptimizer(learning_rate=0.01).minimize(cost)
+
+
+sess = tf.Session()
+
+sess.run(tf.global_variables_initializer())
+
+
+#populate the file queue
+coord = tf.train.Coordinator()
+threads = tf.train.start_queue_runners(sess=sess, coord=coord)
+
+#training process
+for step in range(1501):
+    x_batch, y_batch = sess.run([train_x_batch, train_y_batch])
+    cost_val, hypothesis_val, _ = sess.run(
+        [cost, hypothesis, train], feed_dict={X: x_batch, Y: y_batch})
+    print("at Step: {}, cost: {}".formate(step, cost))
+
+    
+#testing process
+features = tf.placeholder(tf.float32, shape=[None, 9])
+labels = tf.placeholder(tf.float32, shape=[None, 1])
+for step in range(67):
+    feature, label = sess.run([test_features, test_labels])
+    features = sess.run(tf.concat(features, feature))
+    labels = sess.run(tf.concat(labels, label))
+    
+cost = sess.run(cost, feed_dict={X:feature, Y: label})
+
+
+coord.request_stop()
+coord.join(threads)
